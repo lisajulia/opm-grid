@@ -175,6 +175,7 @@ public:
 
     const WellConnections& getWellConnections() const
     {
+        std::cout << "get well connections" << std::endl;
         return well_indices_;
     }
 

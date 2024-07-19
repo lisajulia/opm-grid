@@ -325,6 +325,7 @@ CpGrid::scatterGrid(EdgeWeightMethod method,
         }
         else
         {
+            std::cout << "WILL PARTITION GRID NOW!!" << std::endl;
             if (partitionMethod == Dune::PartitionMethod::zoltan)
             {
 #ifdef HAVE_ZOLTAN

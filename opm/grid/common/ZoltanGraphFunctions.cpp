@@ -249,11 +249,16 @@ void fillNBORGIDAndWeightsForSpecificCellAndIncrementNeighborCounterForGridWithW
     const Dune::CpGrid&  grid = graph.getGrid();
     // First the strong edges of the well completions.
     auto wellEdges = graph.getWellsGraph()[localCellId];
+    if (wellEdges.size() > 0)
+        std::cout << "wellEdges of " << localCellId << ":" << std::endl;
     for( auto edge : wellEdges)
     {
+        std::cout << edge << " ";
         nborGID[neighborCounter] = edge;
         ewgts[neighborCounter++] = std::numeric_limits<weightType>::max();
     }
+    if (wellEdges.size() > 0)
+        std::cout << std::endl;
 
     // Now the ones of the grid that are not handled by the well completions
     for ( int local_face = 0 ; local_face < grid.numCellFaces(localCellId); ++local_face )
